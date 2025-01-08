@@ -4,24 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mobile Number Authentication</title>
+
+  
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; }
-    .container { margin-top: 50px; }
-    input, button { margin: 10px; padding: 10px; width: 300px; }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7fb;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .input-field {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .input-field input {
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-field input:focus {
+      border-color: #007bff;
+    }
+
+    .input-field button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .input-field button:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 480px) {
+      .container {
+        width: 90%;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .input-field input,
+      .input-field button {
+        width: 100%;
+      }
+    }
   </style>
+
 </head>
 <body>
   <div class="container">
     <h1>Phone Authentication</h1>
     <div id="recaptcha-container"></div>
-    <input type="text" id="phoneNumber" placeholder="Enter mobile number" />
-    <button id="sendOtpBtn">Send OTP</button>
+    
+    <div class="input-field">
+      <input type="text" id="phoneNumber" placeholder="Enter mobile number" />
+    </div>
+    
+    <div class="btn-group">
+      <button id="sendOtpBtn">Send OTP</button>
+    </div>
+    
     <br />
-    <input type="text" id="otp" placeholder="Enter OTP" />
-    <button id="verifyOtpBtn">Verify OTP</button>
+    
+    <div class="input-field">
+      <input type="text" id="otp" placeholder="Enter OTP" />
+    </div>
+    
+    <div class="btn-group">
+      <button id="verifyOtpBtn">Verify OTP</button>
+    </div>
   </div>
+
+  
   <script src="auth.js"></script>
 </body>
 </html>
